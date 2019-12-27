@@ -1,0 +1,294 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100 col-sm-12">
+        <div class="row" style="margin-bottom:10px;">
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover" (click)="filterToggle = !filterToggle">
+                            <mat-icon>filter_list</mat-icon> Filter
+                        </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                    <div class="w-100 flex-p">
+
+                    </div>
+                </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+                                <mat-icon>help_outline</mat-icon> Help
+<<<<<<< HEAD
+                           </button> -->
+                <button mat-raised-button class="pull-right add-hover btn-success" (click)="sendEmailDialog(null)">
+                        <mat-icon>send</mat-icon> Send Email
+=======
+                            </button> -->
+                    <button mat-raised-button  class="pull-right add-hover btn-success" (click)="openUserDialog(null)">
+                        <mat-icon>person_add</mat-icon> Add User
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+                    </button>
+                <button mat-raised-button class="pull-right add-hover btn-success margin-right-10" (click)="exportAsExcel()">
+                        <mat-icon>cloud_download</mat-icon> Export CSV
+                    </button>
+                <button mat-raised-button class="pull-right add-hover btn-success margin-right-10" (click)="captureScreen()">
+                        <mat-icon>cloud_download</mat-icon> Export PDF
+                    </button>
+            </div>
+        </div>
+    </div>
+
+<<<<<<< HEAD
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 col-sm-12" *ngIf="filterToggle">
+        <mat-card class="filter">
+            <mat-card-content>
+                <!-- <div class="row col-sm-12">
+                                
+                                <div class="col-sm-4">
+                                    <div class="col-sm-4 newMarginClass">
+                                        From Date : 
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="input-icon right">
+                                            <i class="fa fa-calendar" [owlDateTimeTrigger]="dt3"></i>
+                                            <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3" [(ngModel)]="dates">
+                                            <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-4 newMarginClass">
+                                        To Date : 
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="input-icon right">
+                                            <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                            <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" [(ngModel)]="dates">
+                                            <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div> -->
+                <div class="row col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="col-sm-4 newMarginClass">
+                            Physician First Name :
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="--Physician First Name--">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Speciality :
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select placeholder="--Search by Speciality--" class="form-control">
+                                <mat-option *ngFor="let option of Speciality" [value]="">{{option}}</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-1">
+                        <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                    </div>
+                    <div class="col-lg-1"></div>
+=======
+        <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                    <mat-card class="filter">
+                        <mat-card-content>
+                      
+                                <div class="row col-sm-12">
+                                        <div class="col-sm-4">
+                                                <div class="col-sm-4 newMarginClass">
+                                                    User Name : 
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" placeholder="--Enter User Name--">
+                                                </div>
+                                        </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 newMarginClass">
+                                            Status : 
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <mat-select placeholder="--Search by Status--" class="form-control">
+                                                <mat-option *ngFor="let option of status" [value]="">{{option}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-sm-4 newMarginClass">
+                                            Business Center : 
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <mat-select placeholder="--Search by Business Center--" class="form-control">
+                                                <mat-option *ngFor="let option of businessCenters" [value]="">{{option}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                                <div class="row col-sm-12">
+                                <div class="col-lg-10"></div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                                </div>
+                            </div>
+                                
+                            
+                        </mat-card-content>
+                    </mat-card>
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+                </div>
+
+<<<<<<< HEAD
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="flex-p col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table id="contentToConvert" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr class="tr-grid-header">
+                                <th>Program ID </th>
+                                <th>Product Name</th>
+                                <th>Country Code</th>
+                                <th>Voucher ID </th>
+                                <th>Distribution Date</th>
+                                <th>Expiration Date</th>
+                                <th style="padding-bottom: 25px">User Email</th>
+                                <th>User Territory</th>
+                                <th>Member Certificate#</th>
+                                <th>Order Date</th>
+                                <th style="padding-bottom: 25px">Order#</th>
+                                <th>Physician Last Name</th>
+                                <th>Physician First Name</th>
+                                <th style="padding-bottom: 25px">Address </th>
+                                <th style="padding-bottom: 25px">City </th>
+                                <th style="padding-bottom: 25px">Province </th>
+                                <th>Postal Code </th>
+                                <th style="padding-bottom: 25px">Speciality </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of inventoryList">
+                                <td>{{item.ProgramID}}</td>
+                                <td>{{item.ProductName}}</td>
+                                <td class="">{{item.CountryCode}}</td>
+                                <td class="">{{item.VoucherId}}</td>
+                                <td>{{item.DistributionDate}}</td>
+                                <td class="">{{item.ExpirationDate}}</td>
+                                <td class="">{{item.UserEmail}}</td>
+                                <td class="">
+                                    {{item.UserTerritory}}
+                                </td>
+                                <td class="">
+                                    {{item.MemberCertificate}}
+                                </td>
+                                <td>{{item.OrderDate}}</td>
+                                <td>{{item.Order}}</td>
+                                <td>{{item.lastName}}</td>
+                                <td>{{item.firstName}}</td>
+                                <td>{{item.Address}}</td>
+                                <td>{{item.City}}</td>
+                                <td>{{item.Province}}</td>
+                                <td>{{item.postalCode}}</td>
+                                <td>{{item.Speciality}}</td>
+
+
+                                <!-- <td>{{item.vcPhone}}</td>
+                                                                    <td><a routerLink="permissions">{{item.Permissions}}</a></td>
+                                                                    <td class="pad-left inner-screen text-center">
+                                                                        <a (click)="item.status = ! item.status">
+                                                                            <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                                                            <span *ngIf="item.status">Active</span>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                        <a matTooltip="Edit Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
+                                                                        <a>
+                                                                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete" class="fa fa-trash red"></i>
+                                                                        </a>
+                                                                    </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
+=======
+        
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>User Name</th>
+                            <th>Unique ID</th>
+                            <th>Password</th>
+                            <th>Business Center</th>
+                            <!-- <th>Phone</th> -->
+                            <th>User Type</th>
+                            <!-- <th>Permissions</th> -->
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of tableLists">
+                            <td>{{item.vcName}}</td>
+                            <td>{{item.uniqueId}}</td>
+                            <td><a style="color:#246ade!important;cursor: pointer;" (click)="openPasswordResetDialog(item)">Reset</a></td>
+                            <td>{{item.businessCenter}}</td>
+                            <!-- <td>{{item.vcPhone}}</td> -->
+                            <td>{{item.userType}}</td>
+                            <!-- <td><a routerLink="permissions">{{item.Permissions}}</a></td> -->
+                            <td class="pad-left inner-screen text-center">
+                                <a (click)="item.status = ! item.status">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status">Active</span>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a matTooltip="Edit Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openUserDialog(item)">
+                                  <i class="fa fa-edit"></i>
+                                </a>
+                                <a mwlConfirmationPopover
+                                [popoverTitle]="popoverTitle"
+                                [popoverMessage]="popoverMessage"
+                                placement="left"
+                                (confirm)="deletePatientOrder()"
+                                (cancel)="cancelClicked = true" [appendToBody]="true">
+                                  <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete" class="fa fa-trash red"></i>
+                                </a>
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

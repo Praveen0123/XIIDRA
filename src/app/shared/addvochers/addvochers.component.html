@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>
+    <span *ngIf="!user">Send</span><span *ngIf="user">Edit</span> Email</h1>
+<hr>
+<hr>
+<div mat-dialog-content>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Product Name : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" id="email" placeholder="Enter User Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Country Code  : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" id="email" placeholder="Enter Email ID">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Voucher ID : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="textarea" class="form-control" id="email" placeholder="Enter Email ID">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd"> Distribution Date : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="number" class="form-control" placeholder="Enter Contact Number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">  Expiration Date : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="number" class="form-control" placeholder="Enter Contact Number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd"> User Email : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="number" class="form-control" placeholder="Enter Contact Number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd"> User Territory  : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="number" class="form-control" placeholder="Enter Contact Number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd"> Member Certificate No  : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="number" class="form-control" placeholder="Enter Contact Number">
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Select Status : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select name="" id="" placeholder="-- Select Status --" class="form-control">
+                    <mat-option [value]=1>Active</mat-option>
+                    <mat-option [value]=2>Inactive</mat-option>
+                </mat-select>
+            </div>
+        </div> -->
+
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="add-hover btn-success" (click)="close()" [mat-dialog-close]="'test'"><span *ngIf="!user"> Send Email</span><span
+            *ngIf="user">Update</span></button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>

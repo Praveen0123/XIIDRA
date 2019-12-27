@@ -1,0 +1,72 @@
+<<<<<<< HEAD
+<!-- <h1 mat-dialog-title>
+    <span *ngIf="!user"></span><span *ngIf="user">Edit</span> </h1>
+<hr>
+<hr> -->
+<div class="row  w-100">
+    <div class="col-sm-12" mat-dialog-content>
+        <div class="row">
+            <form class="form-horizontal col-sm-12">
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Physcian Name : </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select name="" id="" placeholder="--Search by Physcian Name--" class="form-control">
+                            <mat-option [value]=1>Andrea Kells</mat-option>
+                            <mat-option [value]=2>Tricia Rychjohn</mat-option>
+                            <mat-option [value]=2>Aleksandra Veselinovic</mat-option>
+                        </mat-select>
+
+
+                        <!-- <mat-select placeholder="--Search by Name--" multiple class="form-control">
+                                        <mat-option *ngFor="let option of physcianList" [value]="">{{option.AllelName}}</mat-option>
+                                    </mat-select> -->
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Address : </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select name="" id="" placeholder="--Search by Address--" class="form-control">
+                            <mat-option [value]=1>738 Granville St Level 8</mat-option>
+                            <mat-option [value]=2>3-2918 Tutt St. checked</mat-option>
+                            <mat-option [value]=2>2155 10TH AVE SUITE 203</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Province : </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select name="" id="" placeholder="--Search by Province--" class="form-control">
+                            <mat-option [value]=1>AB</mat-option>
+                            <mat-option [value]=2>BC</mat-option>
+                            <mat-option [value]=2>BC</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vouchers ID : </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select placeholder="--Search by vouchers id--" multiple class="form-control">
+                            <mat-option *ngFor="let option of physcianList" [value]="">{{option.AllelName}}</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div>
+    <button mat-raised-button class="add-hover btn-success" (click)="close()"><span *ngIf="!user"> Assign </span><span
+            *ngIf="user">Update</span></button>
+=======
+<div>
+    <router-outlet></router-outlet>
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+</div>

@@ -1,0 +1,53 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master-in-availability-calendar></app-master-in-availability-calendar>
+        
+        <div class="row wrap" style="margin-bottom:7px;">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openHolidayDialog(null)">
+                        <mat-icon>add</mat-icon> Add Holiday 
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>BusinessCentre</th>
+                        <th>Physician</th>
+                        <th>Holiday Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td>{{item.BusinessCentre}}</td>
+                        <td>{{item.physician}}</td>
+                        <td>{{item.holidayDate}}</td>
+                        <td>
+                            <a matTooltip="Edit Imaging Code" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openHolidayDialog(item)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteimagingCode()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Imaging Code" class="fa fa-trash red"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td rowspan="2">physician</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,181 @@
+<<<<<<< HEAD
+<h1 mat-dialog-title><span *ngIf="!order">Add</span><span *ngIf="order">Edit</span> Physician </h1>
+<hr>
+=======
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!order">Add</span><span *ngIf="order">Edit</span> Incoming Order</h1>
+</div>
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="incomingOrderForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Country Code: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addCountryCode" placeholder="Enter Country Code ">
+                <!-- <div *ngIf="!addFirstName.valid && (addFirstName.dirty || addFirstName.touched)" class="error-text">
+                    <div *ngIf="addFirstName.errors.required">
+                        First name is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">User Email: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="email" formControlName="addEmail" placeholder="Enter User Email">
+                <div *ngIf="!addEmail.valid && (addEmail.dirty || addEmail.touched)" class="error-text">
+                    <div *ngIf="addEmail.errors.required">
+                        email is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">User Territory: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addTerritory" placeholder="Enter User Territory">
+                <!-- <div *ngIf="!addLastName.valid && (addLastName.dirty || addLastName.touched)" class="error-text">
+                      <div *ngIf="addLastName.errors.required">
+                          Last name is required
+                      </div>
+                  </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Physician last  Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addLastName" placeholder="Enter Physician last Name">
+                <div *ngIf="!addLastName.valid && (addLastName.dirty || addLastName.touched)" class="error-text">
+                    <div *ngIf="addLastName.errors.required">
+                        Last name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 ">Physician middle Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addmiddleName" placeholder="Enter Physician middle Name">
+                <!-- <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="od" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Physician first Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div *ngIf="!addfirstName.valid && (addfirstName.dirty || addfirstName.touched)" class="error-text">
+                    <div *ngIf="addfirstName.errors.required">
+                        First name is required
+                    </div>
+                </div>
+                <!-- <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                    <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="dc" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+                    <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                </div> -->
+                <input type="text" class="form-control" id="" formControlName="addfirstName" placeholder="Enter Physician first Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Address 1: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <mat-checkbox></mat-checkbox> -->
+                <!-- <div *ngIf="!addLastName.valid && (addLastName.dirty || addLastName.touched)" class="error-text">
+                      <div *ngIf="addLastName.errors.required">
+                          Last name is required
+                      </div>
+                  </div> -->
+                <input type="text" class="form-control" id="" formControlName="Address1" placeholder="Enter Address 1 ">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 ">Address 2: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="email" formControlName="Address2" placeholder="Enter Address 2 ">
+                <!-- <div *ngIf="!addLastName.valid && (addLastName.dirty || addLastName.touched)" class="error-text">
+                      <div *ngIf="addLastName.errors.required">
+                          Last name is required
+                      </div>
+                  </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 " for="pwd">Address 3: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="Address3" placeholder="Enter Address 3 ">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <!-- <mat-select color="primary" placeholder="--Select Status--" formControlName="addReferringPhysician" class="form-control" required>
+                    <mat-option [value]="0">Pending</mat-option>
+                    <mat-option [value]="1">Done</mat-option>
+                </mat-select> -->
+                <!-- <div *ngIf="!addReferringPhysician.valid && (addReferringPhysician.dirty || addReferringPhysician.touched)" class="error-text">
+                <div *ngIf="addReferringPhysician.errors.required">
+                    Referring Physician is required
+                </div>
+            </div>   -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">City: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addCity" placeholder="Enter City">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Province: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addProvince" placeholder="Enter Province ">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">POSTAL CODE: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addPOSTALCODE" placeholder="Enter POSTAL CODE ">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Country: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addCountry" placeholder="Enter Country">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Specialty: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" formControlName="addSpecialty" placeholder="Enter Specialty ">
+
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Select Document : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 margins">
+                <input type="file" accept="image/*" placeholder="Upload file..." style="margin-top: 3px;">
+            </div>
+        </div> -->
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+<<<<<<< HEAD
+    <button mat-raised-button Class=" add-dark-hover btn-success" (click)="saveOrder()" [mat-dialog-close]="'test'"><span *ngIf="!order">Save</span><span
+            *ngIf="order">Update</span></button>
+    <!-- <button mat-raised-button [ngClass]="!incomingOrderForm.valid ? '' : 'btn-success'" [disabled]="!incomingOrderForm.valid" (click)="saveOrder()" [mat-dialog-close]="'test'"><span *ngIf="!order">Save</span><span
+                *ngIf="order">Update</span></button> -->
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>
+=======
+    <button mat-raised-button [ngClass]="!incomingOrderForm.valid ? '' : 'btn-primary'" [disabled]="!incomingOrderForm.valid" (click)="saveOrder()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon><span *ngIf="!order">Save</span><span
+            *ngIf="order">Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0

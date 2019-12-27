@@ -1,0 +1,51 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row wrap" style="margin-bottom:7px;">
+          <div class="col-sm-8">
+            <div class="pills w-100 flex-p">
+              <ul class="nav nav-pills">
+                <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/timings']"><mat-icon>highlight</mat-icon> Timings</a></li>
+                <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/holidays']"><mat-icon>schedule</mat-icon> Holidays</a></li>
+                <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/weekoffs']"><mat-icon>find_in_page</mat-icon> Week-off</a></li>
+                <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/unavailables']"><mat-icon>post_add</mat-icon> Unavailable</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="w-100 flex-p">
+            </div>
+          </div>
+        </div>
+  
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Physician</th>
+                            <th>First Weekoff</th>
+                            <th>Second Weekoff</th>
+                            <th>Third Weekoff</th>
+                            <th>Fourth Weekoff</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of tableList">
+                            <td>{{item.physician}}</td>
+                            <td>{{item.firstWeekoff}}</td>
+                            <td>{{item.secondWeekoff}}</td>
+                            <td>{{item.thirdWeekoff}}</td>
+                            <td>{{item.fourthWeekoff}}</td>
+                            <td>
+                                <a matTooltip="Edit physician weekoff" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openPhysicianWeekoffDialog(item)">
+                                  <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>

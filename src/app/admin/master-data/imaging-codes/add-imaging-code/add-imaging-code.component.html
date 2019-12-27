@@ -1,0 +1,85 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title><span *ngIf="!imagingCode">Add</span><span *ngIf="imagingCode">Edit</span> Imaging Code</h1>
+</div>
+<div mat-dialog-content>
+  
+  <form class="form-horizontal" novalidate [formGroup]="addImagingCodeForm">
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> Imaging Code : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="imagingCodes" class="form-control" id="email" placeholder="Enter Imaging Code" required>
+        <div *ngIf="!imagingCodes.valid && (imagingCodes.dirty || imagingCodes.touched)" class="error-text">
+          <div *ngIf="imagingCodes.errors.required">
+            Imaging Code is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> Name : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="imagingName" class="form-control" id="email" placeholder="Enter Imaging Name" required>
+        <div *ngIf="!imagingName.valid && (imagingName.dirty || imagingName.touched)" class="error-text">
+          <div *ngIf="imagingName.errors.required">
+            Imaging Name is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> Description : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="description" class="form-control" id="email" placeholder="Enter Description" required>
+        <div *ngIf="!description.valid && (description.dirty || description.touched)" class="error-text">
+          <div *ngIf="description.errors.required">
+            Description is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">CPT Code 1 : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="cptCode1" class="form-control" id="email" placeholder="Enter CPT Code" required>
+        <div *ngIf="!cptCode1.valid && (cptCode1.dirty || cptCode1.touched)" class="error-text">
+          <div *ngIf="cptCode1.errors.required">
+            CPT code 1 is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">CPT Code 2 : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="cptCode2" class="form-control" id="email" placeholder="Enter CPT Code">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">CPT Code 3 : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="cptCode3" class="form-control" id="email" placeholder="Enter CPT Code">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+        <mat-select color="primary" formControlName="status" placeholder="--Select Status--" class="form-control" required>
+          <mat-option [value]="0">Active</mat-option>
+          <mat-option [value]="1">Inactive</mat-option>
+        </mat-select>
+        <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+          <div *ngIf="status.errors.required">
+            Status is required
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button style="cursor:pointer;" [disabled]="!addImagingCodeForm.valid" [ngClass]="!addImagingCodeForm.valid ? '' : 'btn-primary'" (click)="saveImagingCode()" [mat-dialog-close]="'test'"><mat-icon *ngIf="imagingCode">update</mat-icon><mat-icon *ngIf="!imagingCode">save</mat-icon><span *ngIf="!imagingCode"> Save</span><span
+    *ngIf="imagingCode"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

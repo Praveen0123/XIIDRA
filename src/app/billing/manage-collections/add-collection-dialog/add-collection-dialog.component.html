@@ -1,0 +1,103 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!attornies">Add</span><span *ngIf="attornies">Edit</span> Collection</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addCollectionForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Attorney : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="attorney" required placeholder="--Select Attorney--" class="form-control">
+                    <mat-option [value]="0">Domenic Vinci</mat-option>
+                    <mat-option [value]="1">Brad Kewalramani</mat-option>
+                    <mat-option [value]="2">Kipling Morton</mat-option>
+                    <mat-option [value]="3">Michael Persaud</mat-option>
+                    <mat-option [value]="4">Dan McCarthy</mat-option>
+                </mat-select>
+                <div *ngIf="!attorney.valid && (attorney.dirty || attorney.touched)" class="error-text">
+                    <div *ngIf="attorney.errors.required">
+                        Attorney is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Patient : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="patient" required placeholder="--Select Patient--" class="form-control">
+                    <mat-option [value]="0">Fabrice Vanegas</mat-option>
+                    <mat-option [value]="1">Stephen McGill</mat-option>
+                    <mat-option [value]="2">Otto Rieder</mat-option>
+                    <mat-option [value]="3">Joe Deu-Ngoc</mat-option>
+                    <mat-option [value]="4">Chris Soles</mat-option>
+                </mat-select>
+                <div *ngIf="!patient.valid && (patient.dirty || patient.touched)" class="error-text">
+                    <div *ngIf="patient.errors.required">
+                        Patient is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Claim Amount : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <label class="control-label">$ 8000</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Mode of Payment : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="MOP" required placeholder="--Select Payment Mode--" class="form-control">
+                    <mat-option [value]="0">Cheque</mat-option>
+                    <mat-option [value]="1">Cash</mat-option>
+                    <mat-option [value]="2">Credit Card</mat-option>
+                    <mat-option [value]="3">Debit Card</mat-option>
+                </mat-select>
+                <div *ngIf="!MOP.valid && (MOP.dirty || MOP.touched)" class="error-text">
+                    <div *ngIf="MOP.errors.required">
+                        Mode of payment is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="addCollectionForm.value.MOP === 0" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Proof : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="file" formControlName="proof" style="margin-top:3px!important;" required>
+                <div *ngIf="!proof.valid && (proof.dirty || proof.touched)" class="error-text">
+                    <div *ngIf="proof.errors.required">
+                        Document proof is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="addCollectionForm.value.MOP != 1" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Payment Reference Number : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="PRN" required class="form-control" placeholder="Enter Payment Reference Number">
+                <div *ngIf="!PRN.valid && (PRN.dirty || PRN.touched)" class="error-text">
+                    <div *ngIf="PRN.errors.required">
+                        Payment reference number is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Received Amount : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="receivedAmount" required class="form-control" placeholder="Enter Received Amount">
+                <div *ngIf="!receivedAmount.valid && (receivedAmount.dirty || receivedAmount.touched)" class="error-text">
+                    <div *ngIf="receivedAmount.errors.required">
+                        Received amount is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCollectionForm.valid" style="cursor:pointer;" [ngClass]="!addCollectionForm.valid ? '' : 'btn-primary' " (click)="saveAttorney()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon><span *ngIf="!attornies">Save</span><span
+            *ngIf="attornies">Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

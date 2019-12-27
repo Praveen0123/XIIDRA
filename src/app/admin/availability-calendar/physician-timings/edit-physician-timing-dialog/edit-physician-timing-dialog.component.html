@@ -1,0 +1,68 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>Edit Physician Timings</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Physician : </label>
+            <label class="control-label col-sm-8 fontWeightClassPhysician">David Warner</label>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Start Time : </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control cursorClass" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" [(ngModel)]="time1">
+                    <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
+                </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">End Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <div class="input-icon right">
+                    <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt2"></i>
+                    <input class="form-control cursorClass" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" [(ngModel)]="time2">
+                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Lunch Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="input-icon right">
+                        <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt3"></i>
+                        <input class="form-control cursorClass" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3" [(ngModel)]="time3">
+                        <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+                    </div>
+                </div>
+                <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">To : </label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="input-icon right">
+                        <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt4"></i>
+                        <input class="form-control cursorClass" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" name="dt4" [(ngModel)]="time4">
+                        <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Working Days : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-checkbox [checked]="SundayChecked">Sunday</mat-checkbox><br>
+                <mat-checkbox [checked]="MondayChecked">Monday</mat-checkbox><br>
+                <mat-checkbox [checked]="TuesdayChecked">Tuesday</mat-checkbox><br>
+                <mat-checkbox [checked]="WednesdayChecked">Wednesday</mat-checkbox><br>
+                <mat-checkbox [checked]="ThursdayChecked">Thursday</mat-checkbox><br>
+                <mat-checkbox [checked]="FridayChecked">Friday</mat-checkbox><br>
+                <mat-checkbox [checked]="SaturdayChecked">Saturday</mat-checkbox><br>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" class="btn-primary" (click)="saveTimings()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon>&nbsp;Update</button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

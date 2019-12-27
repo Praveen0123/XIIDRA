@@ -1,0 +1,133 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!attornies">Add</span><span *ngIf="attornies">Edit</span> Attorney</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addAttorneyForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Attorney : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="attorney" id="email" placeholder="Enter Attorney name" required>
+                <div *ngIf="!attorney.valid && (attorney.dirty || attorney.touched)" class="error-text">
+                    <div *ngIf="attorney.errors.required">
+                        Attorney is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Fax : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text"formControlName="faxNumber" [textMask]="{mask: phoneNumberMask}" class="form-control" placeholder="Enter Fax Number" required>
+                <div *ngIf="!faxNumber.valid && (faxNumber.dirty || faxNumber.touched)" class="error-text">
+                    <div *ngIf="faxNumber.errors.required">
+                        Fax is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Contact Number : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="phone" [textMask]="{mask: phoneNumberMask}" required class="form-control" placeholder="Enter Contact Number">
+                <div *ngIf="!phone.valid && (phone.dirty || phone.touched)" class="error-text">
+                    <div *ngIf="phone.errors.required">
+                        Contact number is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Email : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" email formControlName="emailId" required class="form-control" id="email" placeholder="Enter Email">
+                <div *ngIf="!emailId.valid && (emailId.dirty || emailId.touched)" class="error-text">
+                    <div *ngIf="emailId.errors.required">
+                        Email is required
+                    </div>
+                    <div *ngIf="emailId.errors.email">
+                        Enter a valid email
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Address : </label>
+            <div class="col-sm-8">
+                <textarea formControlName="address" class="form-control txtarea" rows="2" placeholder="Enter address" required></textarea>
+                <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                    <div *ngIf="address.errors.required">
+                        Address is required
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">State / Province : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <mat-select color="primary" formControlName="state" required placeholder="--Select State--" class="form-control">
+                <mat-option [value]="0">New York</mat-option>
+                <mat-option [value]="1">New Jersey</mat-option>
+                <mat-option [value]="2">Texas</mat-option>
+                <mat-option [value]="3">Virginia</mat-option>
+                <mat-option [value]="4">New Hampshire</mat-option>
+                <mat-option [value]="5">Vermont</mat-option>
+                <mat-option [value]="6">California</mat-option>
+                <mat-option [value]="7">Florida</mat-option>
+                <mat-option [value]="8">Michigan</mat-option>
+                <mat-option [value]="9">Pennsylvania</mat-option>
+                <mat-option [value]="10">Ohio</mat-option>
+              </mat-select>
+              <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                  <div *ngIf="state.errors.required">
+                      State is required
+                  </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">City : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <mat-select color="primary" formControlName="city" required placeholder="--Select City--" class="form-control">
+                <mat-option [value]="0">San Francisco</mat-option>
+                <mat-option [value]="1">Los Angeles</mat-option>
+                <mat-option [value]="2">Chicago</mat-option>
+                <mat-option [value]="3">Boston</mat-option>
+                <mat-option [value]="4">Austin</mat-option>
+                <mat-option [value]="5">San Diego</mat-option>
+                <mat-option [value]="6">Dallas</mat-option>
+                <mat-option [value]="7">Miami</mat-option>
+                <mat-option [value]="8">Detroit</mat-option>
+                <mat-option [value]="9">Portland</mat-option>
+                <mat-option [value]="10">Phoenix</mat-option>
+              </mat-select>
+              <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                  <div *ngIf="city.errors.required">
+                      City is required
+                  </div>
+              </div>
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="status" placeholder="--Select Status--" class="form-control" required>
+                  <mat-option [value]="0">Active</mat-option>
+                  <mat-option [value]="1">Inactive</mat-option>
+                </mat-select>
+                <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+                    <div *ngIf="status.errors.required">
+                        Status is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addAttorneyForm.valid" [ngClass]="!addAttorneyForm.valid ? '' : 'btn-primary'" (click)="saveAttorney()" [mat-dialog-close]="'test'"><mat-icon *ngIf="attornies">update</mat-icon><mat-icon *ngIf="!attornies">save</mat-icon><span *ngIf="!attornies"> Save</span><span
+            *ngIf="attornies"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

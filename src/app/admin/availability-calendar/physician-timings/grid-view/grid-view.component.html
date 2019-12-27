@@ -1,0 +1,61 @@
+
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+          <app-master-in-availability-calendar></app-master-in-availability-calendar>
+
+          <div class="row wrap" style="margin-bottom:7px;">
+            <div class="col-lg-6">
+              <div class="pills w-100 flex-p">
+                <ul class="nav nav-pills">
+                  <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/timings/gridview']"><mat-icon>grid_on</mat-icon> Grid View</a></li>
+                  <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/admin/availabilitycalendar/timings/calendarview']"><mat-icon>today</mat-icon> Calendar View</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="w-100 flex-p">
+                <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+                  <mat-icon>add</mat-icon> Add Visit
+                </button> -->
+                <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                  <mat-icon>filter_list</mat-icon> Filter
+                </button> -->
+              </div>
+            </div>
+          </div>
+      
+
+      <div fxLayout="row wrap">
+          <div class="table-responsive">
+              <table id="example2" class="table table-bordered table-hover">
+                  <thead class="tbl-head">
+                      <tr class="tr-grid-header">
+                          <th>Physician</th>
+                          <th>Start Time</th>
+                          <th>End Time</th>
+                          <th>Lunch Time</th>
+                          <th>Working Days</th>
+                          <!-- <th>Weekoffs</th> -->
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of tableList">
+                          <td>{{item.physician}}</td>
+                          <td>{{item.startTime}}</td>
+                          <td>{{item.endTime}}</td>
+                          <td>{{item.lunchTime}}</td>
+                          <td>{{item.workingDays}}</td>
+                          <!-- <td>{{item.weekoffs}}</td> -->
+                          <td>
+                              <a matTooltip="Edit physician timings" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openPhysicianTimingDialog(item)">
+                                <i class="fa fa-edit"></i>
+                              </a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>

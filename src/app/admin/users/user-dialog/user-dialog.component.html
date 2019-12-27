@@ -1,0 +1,206 @@
+<<<<<<< HEAD
+<h1 mat-dialog-title><span *ngIf="!user">Export</span><span *ngIf="user">Edit</span> PDF</h1>
+<hr>
+=======
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> User</h1>
+</div>
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0
+<div mat-dialog-content>
+    
+    <form class="form-horizontal" novalidate [formGroup]="addUserForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Business Center : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select name="" id="" formControlName="businessCenter" placeholder="-- Select Business Center --" class="form-control" required>
+                    <mat-option [value]=1>Core Health</mat-option>
+                    <mat-option [value]=2>Sapphire MD</mat-option>
+                    <mat-option [value]=3>Pain Allieviation</mat-option>
+                    <mat-option [value]=4>Centre for Pain Relief</mat-option>
+                    <mat-option [value]=5>Prime Orthopedics</mat-option>
+                </mat-select>
+                <div *ngIf="!businessCenter.valid && (businessCenter.dirty || businessCenter.touched)" class="error-text">
+                    <div *ngIf="businessCenter.errors.required">
+                        Business Center is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">User Type : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select formControlName="userType" placeholder="-- Select User Type --" class="form-control" required>
+                    <mat-option [value]=1>Front Desk</mat-option>
+                    <mat-option [value]=2>Internal Physician</mat-option>
+                    <mat-option [value]=3>Attorney</mat-option>
+                    <mat-option [value]=4>Referring Physician</mat-option>
+                    <mat-option [value]=5>Medical Assistant</mat-option>
+                </mat-select>
+                <div *ngIf="!userType.valid && (userType.dirty || userType.touched)" class="error-text">
+                    <div *ngIf="userType.errors.required">
+                        User Type is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="addUserForm.value.userType == 3" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Attorney : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select name="" id="" formControlName="attorney" placeholder="-- Select Attorney --" class="form-control" required>
+                    <mat-option [value]=1>THE GAGLIARDI LAW FIRM</mat-option>
+                    <mat-option [value]=2>CARLIE E YOUNG LAW FIRM</mat-option>
+                    <mat-option [value]=3>PUSCH & NGUYEN LAW FIRM</mat-option>
+                    <mat-option [value]=4>AUDIA JONES LAW FIRM</mat-option>
+                    <mat-option [value]=5>HILDA L. SIBRIAN LAW FIRM</mat-option>
+                </mat-select>
+                <div *ngIf="!attorney.valid && (attorney.dirty || attorney.touched)" class="error-text">
+                    <div *ngIf="attorney.errors.required">
+                        Attorney is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="addUserForm.value.userType == 2" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Clinical Note Type : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select name="" id="" formControlName="clinicalNote" placeholder="-- Select Clinical Note Type --" class="form-control" required>
+                    <mat-option [value]=1>H&P</mat-option>
+                    <mat-option [value]=2>SOAP</mat-option>
+                    <mat-option [value]=3>GOEL</mat-option>
+                </mat-select>
+                <div *ngIf="!clinicalNote.valid && (clinicalNote.dirty || clinicalNote.touched)" class="error-text">
+                    <div *ngIf="clinicalNote.errors.required">
+                        Clinical note type is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">User Name : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" formControlName="userName" id="email" placeholder="Enter User Name" required>
+                <div *ngIf="!userName.valid && (userName.dirty || userName.touched)" class="error-text">
+                    <div *ngIf="userName.errors.required">
+                        User Name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Unique ID : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="uniqueId" placeholder="Enter Unique ID" required>
+                <div *ngIf="!uniqueId.valid && (uniqueId.dirty || uniqueId.touched)" class="error-text">
+                    <div *ngIf="uniqueId.errors.required">
+                        Unique ID is required
+                    </div>
+                </div>
+            </div>
+        </div>
+<<<<<<< HEAD
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="add-hover btn-success" (click)="saveUser()" [mat-dialog-close]="'test'"><span *ngIf="!user">Save</span><span
+            *ngIf="user">Update</span></button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>
+=======
+        
+        <div class="form-group overflows">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Password : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <!-- <i class="fa fa-key"></i> -->
+                    <tooltip-content [animation]="true" #myTooltip placement="right" class="position">
+                        <h4 style="color: black">Suggested Password Combinations</h4>
+                        <div style="text-align:left;padding:10px">
+                            <ul style="list-style: none;">
+                                <li id="letter" [ngClass]="isOneLetter?'valid':'invalid'">At least
+                                    <strong>one letter</strong>
+                                </li>
+                                <li id="capital" [ngClass]="isOneCapitalLetter?'valid':'invalid'">At least
+                                    <strong>one capital letter</strong>
+                                </li>
+                                <li id="number" [ngClass]="isOneNumber?'valid':'invalid'">At least
+                                    <strong>one number</strong>
+                                </li>
+                                <li id="specialchar" [ngClass]="isOneSpecialCaharacter?'valid':'invalid'">At least
+                                    <strong>one special character</strong>
+                                </li>
+                                <li id="length" [ngClass]="isMinLength?'valid':'invalid'">Be at least
+                                    <strong>8 characters</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </tooltip-content>
+                    <input [tooltip]="myTooltip" tooltipPlacement='right' (keydown.space)="$event.preventDefault()" (keyup)="onKeyPress(addPassword)" type="password" autocomplete="off" formControlName="addPassword" class="form-control" placeholder="Enter New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#\$%\^&\_\+\<\>\.\,\=\:\;\'\?\(\)\[\]\\\/\|\*{}-])(?=.*[A-Z]).{8,20}" required style="letter-spacing:normal!important">
+                    <div *ngIf="!addPassword.valid && (addPassword.dirty || addPassword.touched)" class="error-text">
+                        <div *ngIf="addPassword.errors.required">
+                            Password is required
+                        </div>
+                    </div>
+                </div>
+                <!-- <input type="password" email formControlName="addPassword" maxlength="20" minlength="6" class="form-control" placeholder="Enter Password" required>
+                    <div *ngIf="!addPassword.valid && (addPassword.dirty || addPassword.touched)" class="error-text">
+                        <div *ngIf="addPassword.errors.required">
+                            Password is required
+                        </div>
+                        <div *ngIf="addEmail.errors.minlength">
+                            Password isn't long enough, minimum 6 characters are required 
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Confirm Password : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    
+                    <div class="input-icon right">
+                        <!-- <i class="fa fa-key"></i> -->
+                        <input type="password" formControlName="addConfirmPassword" (keydown.space)="$event.preventDefault()" class="form-control" placeholder="Confirm New Password" style="letter-spacing:normal!important">
+                        <div *ngIf="!addConfirmPassword.valid && (addConfirmPassword.dirty || addConfirmPassword.touched)" class="error-text">
+                            <div *ngIf="addConfirmPassword.errors.required">
+                                Password is required
+                            </div>
+                            <div *ngIf="addConfirmPassword.errors.mustMatch">
+                                Passwords doesn't match
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- <input type="password" email formControlName="addConfirmPassword" maxlength="20" minlength="6" class="form-control" placeholder="Enter Password" required>
+                        <div *ngIf="!addConfirmPassword.valid && (addConfirmPassword.dirty || addConfirmPassword.touched)" class="error-text">
+                            <div *ngIf="addConfirmPassword.errors.required">
+                                Password is required
+                            </div>
+                            <div *ngIf="addEmail.errors.minlength">
+                                Password isn't long enough, minimum 6 characters are required 
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Select Status : </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select name="" id="" formControlName="selectStatus" placeholder="-- Select Status --" class="form-control" required>
+                            <mat-option [value]=1>Active</mat-option>
+                            <mat-option [value]=2>Inactive</mat-option>
+                        </mat-select>
+                        <div *ngIf="!selectStatus.valid && (selectStatus.dirty || selectStatus.touched)" class="error-text">
+                            <div *ngIf="selectStatus.errors.required">
+                                Status is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button [disabled]="!addUserForm.valid" style="cursor:pointer;" [ngClass]="!addUserForm.valid ? '' : 'btn-primary'" (click)="saveUser()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+                *ngIf="user"> Update</span></button>
+                <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+            </mat-dialog-actions> 
+>>>>>>> 424bab94b42de691b2fb230219ac1998a2fbe3a0

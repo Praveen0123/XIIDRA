@@ -1,0 +1,131 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!specialCase">Add</span><span *ngIf="specialCase">Edit</span> Special Case</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addPhysicianForm">
+        
+        
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Business Centre : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                
+                <mat-select color="primary" formControlName="businessCenter" placeholder="--Select Business Centre--" class="form-control" required>
+                    <mat-option [value]="0">Sapphire MD</mat-option>
+                    <mat-option [value]="1">Core Health</mat-option>
+                    <mat-option [value]="2">Center for Pain Relief</mat-option>
+                    <mat-option [value]="3">Prime Orthopedic</mat-option>
+                    <mat-option [value]="4">Pain Alleviation</mat-option>
+                    
+                </mat-select>
+                <div *ngIf="!businessCenter.valid && (businessCenter.dirty || businessCenter.touched)" class="error-text">
+                    <div *ngIf="businessCenter.errors.required">
+                        Business Center is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Physician : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                
+                <mat-select color="primary" formControlName="physician" placeholder="--SelectBusiness Centre--" class="form-control" required>
+                    <mat-option [value]="0">Fabrice Vanegas </mat-option>
+                    <mat-option [value]="1">Stephen McGill </mat-option>
+                    <mat-option [value]="2">Otto Riede </mat-option>
+                    <mat-option [value]="3">Joe Deu-Ngoc </mat-option>
+                    <mat-option [value]="4">Chris Soles </mat-option>
+                    
+                </mat-select>
+                <div *ngIf="!physician.valid && (physician.dirty || physician.touched)" class="error-text">
+                    <div *ngIf="physician.errors.required">
+                        Physician is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" >Date : </label>
+            
+            <div class="col-sm-7">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                    <input class="form-control cursorClass" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div>
+            </div>
+        </div> -->
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Date : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control cursorClass" formControlName="date" placeholder="MM/DD/YYYY" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div>
+                <div *ngIf="!date.valid && (date.dirty || date.touched)" class="error-text">
+                    <div *ngIf="date.errors.required">
+                        Date is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> Start Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control cursorClass" formControlName="startTime" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+                </div>
+                <div *ngIf="!startTime.valid && (startTime.dirty || startTime.touched)" class="error-text">
+                    <div *ngIf="startTime.errors.required">
+                        Start Time is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> End Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control cursorClass" formControlName="endTime" placeholder="HH:MM" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3" required>
+                    <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+                </div>
+                <div *ngIf="!endTime.valid && (endTime.dirty || endTime.touched)" class="error-text">
+                    <div *ngIf="endTime.errors.required">
+                        End Time is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> Start Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt3"></i>
+                    <input class="form-control" placeholder="HH:MM" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3">
+                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label"> End Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt3"></i>
+                    <input class="form-control" placeholder="HH:MM" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3">
+                    <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+                </div>
+            </div>
+        </div> -->
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addPhysicianForm.valid" [ngClass]="!addPhysicianForm.valid ? '' : 'btn-primary'" (click)="saveSpecialCase()" [mat-dialog-close]="'test'"><mat-icon *ngIf="specialCase">update</mat-icon><mat-icon *ngIf="!specialCase">save</mat-icon><span *ngIf="!specialCase"> Save</span><span
+        *ngIf="specialCase"> Update</span></button>
+        <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+    </mat-dialog-actions> 

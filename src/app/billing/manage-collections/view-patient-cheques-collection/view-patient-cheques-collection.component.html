@@ -1,0 +1,47 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>View Collections</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Attorney : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <label class="control-label newFontProperty">Brad Kewalramani</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Patient : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <label class="control-label newFontProperty">Fabrice Vanegas</label>
+            </div>
+        </div>
+
+                <div class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr class="tr-grid-header">
+                                <th>SNo</th>
+                                <th>Received Date</th>
+                                <th>Amount Received</th>
+                                <th>Mode of Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of tableList">
+                                <td>{{item.SNo}}</td>
+                                <td>{{item.receivedDate}}</td>
+                                <td>{{item.amount}}</td>
+                                <td>{{item.mop}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        
+    </form>
+</div>
+<mat-dialog-actions align="end">
+   
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions> 

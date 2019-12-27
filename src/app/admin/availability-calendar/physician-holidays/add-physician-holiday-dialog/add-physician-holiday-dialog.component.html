@@ -1,0 +1,65 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!order">Add</span><span *ngIf="order">Edit</span> Physician Holiday</h1>
+</div>
+
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addphysicianForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Business Centre : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                <mat-select color="primary" formControlName="Business" placeholder="--SelectBusiness Centre--" class="form-control">
+                    <mat-option [value]="0">Sapphire MD</mat-option>
+                    <mat-option [value]="1">Core Health</mat-option>
+                    <mat-option [value]="2">Center for Pain Relief</mat-option>
+                    <mat-option [value]="3">Prime Orthopedic</mat-option>
+                    <mat-option [value]="4">Pain Alleviation</mat-option>
+
+                </mat-select>
+                <div *ngIf="!Business.valid && (Business.dirty || Business.touched)" class="error-text">
+                    <div *ngIf="Business.errors.required">
+                        Business Center is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Physician : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="Physician" placeholder="--Select Physician--" class="form-control">
+                    <mat-option [value]="0">Domenic Vinci</mat-option>
+                    <mat-option [value]="1">Brad Kewalramani</mat-option>
+                    <mat-option [value]="2">Kipling Morton</mat-option>
+                    <mat-option [value]="3">Michael Persaud</mat-option>
+                    <mat-option [value]="4">Dan McCarthy</mat-option>
+                </mat-select>
+                <div *ngIf="!Physician.valid && (Physician.dirty || Physician.touched)" class="error-text">
+                    <div *ngIf="Physician.errors.required">
+                        Physician is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Date : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control cursorClass" formControlName="date" placeholder="MM/DD/YYYY" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div>
+                <div *ngIf="!date.valid && (date.dirty || date.touched)" class="error-text">
+                    <div *ngIf="date.errors.required">
+                        Date is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addphysicianForm.valid" [ngClass]="!addphysicianForm.valid ? '' : 'btn-primary'" (click)="saveHoliday()" [mat-dialog-close]="'test'"><mat-icon *ngIf="order">update</mat-icon><mat-icon *ngIf="!order">save</mat-icon><span *ngIf="!order">Save</span><span *ngIf="order">Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

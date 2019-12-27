@@ -1,0 +1,39 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!addconfirmationvisit">Add</span><span *ngIf="addconfirmationvisit">Edit</span> Visit Confirmation Status</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addVisitConfirmationStatusForm">
+        <div class="form-group">
+            <label class="control-label col-sm-5 add-member-label">Visit Confirmation Status : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="visitConfrimation" required class="form-control" id="email" placeholder="Enter Visit Confirmation Status">
+                <div *ngIf="!visitConfrimation.valid && (visitConfrimation.dirty || visitConfrimation.touched)" class="error-text">
+                    <div *ngIf="visitConfrimation.errors.required">
+                        Visit confirmation status is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label" for="pwd">Status : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="status" required placeholder="--Select Status--" class="form-control">
+                  <mat-option [value]="0">Active</mat-option>
+                  <mat-option [value]="1">Inactive</mat-option>
+                </mat-select>
+                <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+                    <div *ngIf="status.errors.required">
+                        Status is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addVisitConfirmationStatusForm.valid" [ngClass]="!addVisitConfirmationStatusForm.valid ? '' : 'btn-primary'" (click)="saveVisit()" [mat-dialog-close]="'test'"><mat-icon *ngIf="addconfirmationvisit">update</mat-icon><mat-icon *ngIf="!addconfirmationvisit">save</mat-icon><span *ngIf="!addconfirmationvisit"> Save</span><span
+            *ngIf="addconfirmationvisit"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

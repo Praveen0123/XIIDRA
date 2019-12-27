@@ -1,0 +1,129 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!pharmacies">Add</span><span *ngIf="pharmacies">Edit</span> Pharmacy</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addPharmacyForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Pharmacy : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="pharmacy" class="form-control" id="email" placeholder="Enter Pharmacy name" required>
+                <div *ngIf="!pharmacy.valid && (pharmacy.dirty || pharmacy.touched)" class="error-text">
+                    <div *ngIf="pharmacy.errors.required">
+                         Pharmacy name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Fax Number : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" [textMask]="{mask: phoneNumberMask}" formControlName="faxNumber" placeholder="Enter Fax Number" required>
+                <div *ngIf="!faxNumber.valid && (faxNumber.dirty || faxNumber.touched)" class="error-text">
+                    <div *ngIf="faxNumber.errors.required">
+                         Fax Number is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Contact Number : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" [textMask]="{mask: phoneNumberMask}" formControlName="contactNumber" placeholder="Enter Contact Number" required>
+                <div *ngIf="!contactNumber.valid && (contactNumber.dirty || contactNumber.touched)" class="error-text">
+                    <div *ngIf="contactNumber.errors.required">
+                         Contact Number is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Email : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" email class="form-control" formControlName="emailId" id="email" placeholder="Enter Email" required>
+                <div *ngIf="!emailId.valid && (emailId.dirty || emailId.touched)" class="error-text">
+                    <div *ngIf="emailId.errors.required">
+                         Email is required
+                    </div>
+                    <div *ngIf="emailId.errors.email">
+                        Enter a valid email
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">State/Province : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="state" placeholder="--Select State--" class="form-control" required>
+                    <mat-option [value]="0">California</mat-option>
+                    <mat-option [value]="1">Indiana</mat-option>
+                    <mat-option [value]="2">Arizona</mat-option>
+                    <mat-option [value]="3">Mississippi</mat-option>
+                    <mat-option [value]="4">Florida</mat-option>
+                </mat-select>
+                <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                    <div *ngIf="state.errors.required">
+                        State is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">City : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="city" placeholder="--Select City--" class="form-control" required>
+                    <mat-option [value]="0">Birmingham</mat-option>
+                    <mat-option [value]="1">Chicago</mat-option>
+                    <mat-option [value]="2">Portland</mat-option>
+                    <mat-option [value]="2">Manchester</mat-option>
+                    <mat-option [value]="2">Philadelphia</mat-option>
+                </mat-select>
+                <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                    <div *ngIf="city.errors.required">
+                        City is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Address : </label>
+            <div class="col-sm-8">
+                <textarea formControlName="address" class="form-control txtarea" rows="2" placeholder="Enter address" required></textarea>
+                <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                    <div *ngIf="address.errors.required">
+                        Address is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Contact Person:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter contact person name">
+            </div>
+        </div> -->
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="status" placeholder="--Select Status--" class="form-control" required>
+                  <mat-option [value]="0">Active</mat-option>
+                  <mat-option [value]="1">Inactive</mat-option>
+                </mat-select>
+                <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+                    <div *ngIf="status.errors.required">
+                        Status is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addPharmacyForm.valid" [ngClass]="!addPharmacyForm.valid ? '' : 'btn-primary'" style="cursor:pointer;" (click)="savePharmacy()" [mat-dialog-close]="'test'"><mat-icon *ngIf="pharmacies">update</mat-icon><mat-icon *ngIf="!pharmacies">save</mat-icon><span *ngIf="!pharmacies"> Save</span><span
+            *ngIf="pharmacies"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

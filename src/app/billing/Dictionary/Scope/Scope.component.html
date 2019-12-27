@@ -1,0 +1,73 @@
+<div fxLayout="row wrap">
+    <div class="col-sm-12">
+        <h4><b>Order Id# 1234</b></h4>
+    </div>
+</div>
+<div fxLayout="row wrap" style="margin-bottom:10px">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="w-100">
+        <!-- <mat-card class="filter"> -->
+        <!-- <mat-card-content> -->
+
+        <div class="row col-sm-12" class="flex-p">
+            <div class="col-sm-3">
+                <mat-select placeholder="--Search by Name--" multiple class="form-control">
+                    <mat-option *ngFor="let option of List" [value]="">{{option.AllelName}}</mat-option>
+                </mat-select>
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="add-hover btn btn-success pull-right">Assign</button>
+            </div>
+        </div>
+
+
+        <!-- </mat-card-content> -->
+        <!-- </mat-card> -->
+    </div>
+</div>
+
+<div fxLayout="row wrap" style="margin-bottom:10px">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="w-100">
+        <!-- <mat-card class="filter"> -->
+        <!-- <mat-card-content> -->
+
+        <div class="row col-sm-12" class="flex-p">
+            <div class="col-sm-3">
+                <input type="text" class="form-control" placeholder="Search by text">
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+            </div>
+        </div>
+
+
+        <!-- </mat-card-content> -->
+        <!-- </mat-card> -->
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div class="table-responsive" style="margin-left: 10px;margin-right: 10px;">
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr class="tr-grid-header">
+                    <th class="text-center">Voucher Id</th>
+                    <th class="text-center">Distribution Date</th>
+                    <th class="text-center">Expiration Date</th>
+                    <th class="text-center">Member Certificates</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of vouchersList">
+
+                    <td class="text-center">{{item.VoucherId}}</td>
+                    <td class="text-center">{{item.DistributionDate}}</td>
+                    <td class="text-center">{{item.ExpirationDate}}</td>
+                    <td class="text-center"><button class="btn btn-default btn-sm" (click)="viewCertificates(null)">View</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
+    </div>
+</div>

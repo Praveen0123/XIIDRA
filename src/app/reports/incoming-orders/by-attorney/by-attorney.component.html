@@ -1,0 +1,87 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row wrap" style="margin-bottom:7px;">
+            <div class="col-sm-8">
+                <div class="pills w-100 flex-p">
+                    <ul class="nav nav-pills">
+                        <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/reports/incomingorders/byreferringPhysician']"><mat-icon>highlight</mat-icon> Incoming Orders by Referring Physician</a></li>
+                        <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/reports/incomingorders/byAttorney']"><mat-icon>schedule</mat-icon> Incoming Orders by Attorney</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button> -->
+                </div>
+            </div>
+        </div>
+        
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-4">
+                                <div class="col-sm-5 newMarginClass">
+                                    Attorney : 
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" placeholder="--Enter Attorney Name--">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-5 newMarginClass">
+                                    From Date: 
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt3"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3" [(ngModel)]="dates">
+                                        <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-5 newMarginClass">
+                                    To Date : 
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" [(ngModel)]="dates">
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-sm-12 marginTopClass">
+                            <div class="col-sm-4">
+                                <div class="col-sm-5 newMarginClass">
+                                    Business Center : 
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" placeholder="--Enter Businee Center--">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                            
+                            
+                            <div class="col-sm-2">
+                                <button type="button" class="add-hover btn btn-success  pull-right" >GENERATE PDF</button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="add-hover btn btn-success  pull-right" >EXPORT TO EXCEL</button>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

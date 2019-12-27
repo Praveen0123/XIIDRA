@@ -1,0 +1,96 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class=" w-100">
+          
+      <div class="row wrap" style="margin-bottom:15px;margin-left: 1px;margin-bottom: 20px">
+        <div class="col-lg-12">
+          <div class="pills w-100 ">
+            <ul class="nav nav-pills">
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mako/billing/Dictionary/Scope']" style="margin-right: 10px!important; padding: 0px 10px;">Scope</a></li>
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mako/billing/Dictionary/SeqResults']" style="margin-right: 10px!important; padding: 0px 10px;" >SEQ Results</a></li>
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mako/billing/Dictionary/DRI']" style="margin-right: 10px!important; padding: 0px 10px;" >DRI</a></li>
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mako/billing/Dictionary/Messages']" style="margin-right: 10px!important; padding: 0px 10px;" >Message</a></li>
+            </ul>                               
+          </div>
+        </div>
+      </div>
+    
+    </div>
+</div>
+
+<div fxLayout="row wrap" >
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class=" w-100" style="margin-bottom: 10px">
+        <!-- <mat-card class="filter"> -->
+            <!-- <mat-card-content> -->
+
+                    <div class="row col-sm-12" class="flex-p">
+                        <div class="col-sm-3">
+                          <mat-select placeholder="--Search by Age Threshold--" multiple class="form-control">
+                            <mat-option *ngFor="let option of List" [value]="">{{option.AgeThreshold}}</mat-option>
+                          </mat-select>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                        </div>
+                        
+                        <div class="col-lg-8">
+                            <div fxLayout="row" style="float: right !important;" >
+                                <button mat-raised-button class="pull-right add-hover btn-success" (click)="addDriDialog()">
+                                    <mat-icon>add_comment</mat-icon> Add DRI
+                                  </button>
+                            </div>
+                        </div>
+                </div>
+  </div>
+</div>     
+
+<div fxLayout="row wrap">
+    <div class="table-responsive" style="margin-left: 15px;margin-right: 10px;" >
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr class="tr-grid-header">
+                    <th class="text-center" >Age Threshold</th>
+                    <th class="text-center" >Apa</th>
+                    <th class="text-center" >Carbohydrates</th>
+                    <th class="text-center" >Fiber</th> 
+                    <th class="text-center" >linolenic acid</th> 
+                    <th class="text-center" >α-Linolenic acid</th> 
+                    <th class="text-center" >Protein</th> 
+                    <th class="text-center" >Vitamin A</th> 
+                    <th class="text-center" >Vitamin C</th>
+                    <th class="text-center" >Action</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of List">
+                   
+                  <td class="text-center" >{{item.AgeThreshold}}</td>
+                  <td class="text-center" >{{item.Apa}}</td>
+                  <td class="text-center" >{{item.Carbohydrates}}</td>
+                  <td class="text-center" >{{item.Fiber}}</td>
+                  <td class="text-center" >{{item.linolenic}}</td>
+                  <td class="text-center" >{{item.A_linolenic}}</td>
+                  <td class="text-center" >{{item.Protein}}</td>
+                  <td class="text-center" >{{item.Vitamin_A}}</td>
+                  <td class="text-center" >{{item.Vitamin_C}}</td>
+                  <td class="text-center" >
+                      <a title="Edit User" style="margin-right: 10px; cursor: pointer;" (click)="openPatientDialog(item)">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                      <a mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      placement="left"
+                      (confirm)="deletePatientOrder()"
+                      (cancel)="cancelClicked = true">
+                          <i style="cursor: pointer;" title="Delete User" class="fa fa-trash red"></i>
+                      </a>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
+    </div>
+  </div>

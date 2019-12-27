@@ -1,0 +1,105 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!cpt">Add</span><span *ngIf="cpt">Edit</span> CPT Code</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addCPTCodeForm">
+        <div class="form-group">
+            <label class="control-label col-sm-5 add-member-label">CPT Code : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="cptCode" required class="form-control" id="email" placeholder="Enter CPT Code">
+                <div *ngIf="!cptCode.valid && (cptCode.dirty || cptCode.touched)" class="error-text">
+                    <div *ngIf="cptCode.errors.required">
+                        CPT Code is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Description : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="description" required class="form-control" id="email" placeholder="Enter CPT Description">
+                <div *ngIf="!description.valid && (description.dirty || description.touched)" class="error-text">
+                    <div *ngIf="description.errors.required">
+                        Description is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Price at Core Health : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="coreHealth" required class="form-control" id="email" placeholder="Enter Price">
+                <div *ngIf="!coreHealth.valid && (coreHealth.dirty || coreHealth.touched)" class="error-text">
+                    <div *ngIf="coreHealth.errors.required">
+                        Core Health price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Price at Sapphire MD : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="sapphireMD" required class="form-control" id="email" placeholder="Enter Price">
+                <div *ngIf="!sapphireMD.valid && (sapphireMD.dirty || sapphireMD.touched)" class="error-text">
+                    <div *ngIf="sapphireMD.errors.required">
+                        Sapphire MD price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Price at Pain Allieviation : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="painAllieviation" required class="form-control" id="email" placeholder="Enter Price">
+                <div *ngIf="!painAllieviation.valid && (painAllieviation.dirty || painAllieviation.touched)" class="error-text">
+                    <div *ngIf="painAllieviation.errors.required">
+                        Pain Allieviation price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Price at Centre for Pain Relief : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="centerForPainRelief" required class="form-control" id="email" placeholder="Enter Price">
+                <div *ngIf="!centerForPainRelief.valid && (centerForPainRelief.dirty || centerForPainRelief.touched)" class="error-text">
+                    <div *ngIf="centerForPainRelief.errors.required">
+                        Center for pain relief price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label">Price at Prime Orthopedics : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <input type="text" formControlName="primeOrthopedics" required class="form-control" id="email" placeholder="Enter Price">
+                <div *ngIf="!primeOrthopedics.valid && (primeOrthopedics.dirty || primeOrthopedics.touched)" class="error-text">
+                    <div *ngIf="primeOrthopedics.errors.required">
+                        Prime orthopedics price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-5 col-md-5 col-sm-5 col-xs-5 add-member-label" for="pwd">Status : </label>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="status" required placeholder="--Select Status--" class="form-control">
+                    <mat-option [value]="0">Active</mat-option>
+                    <mat-option [value]="1">Inactive</mat-option>
+                </mat-select>
+                <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+                    <div *ngIf="status.errors.required">
+                        Status is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button  style="cursor:pointer;" [disabled]="!addCPTCodeForm.valid" [ngClass]="!addCPTCodeForm.valid ? '' : 'btn-primary'" (click)="saveCpt()" [mat-dialog-close]="'test'"><mat-icon *ngIf="cpt">update</mat-icon><mat-icon *ngIf="!cpt">save</mat-icon><span *ngIf="!cpt"> Save</span><span
+            *ngIf="cpt"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 
